@@ -85,10 +85,12 @@ export class CartService {
       .get();
 
     if (!cart.exists) {
-      return [];
+      return new ApiResponse(200, CART_MESSAGE.GET_SUCCESS, {
+        items: [],
+      });
     }
 
-    return cart.data();
+    return new ApiResponse(200, CART_MESSAGE.GET_SUCCESS, cart.data());
   }
 
   async updateQuantity(

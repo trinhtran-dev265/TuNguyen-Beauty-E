@@ -10,4 +10,6 @@ export const CART_MESSAGE = {
   NOT_FOUND: 'Không tìm thấy giỏ hàng',
 
   UNKNOWN_ERROR: 'Có lỗi xảy ra',
+
+  GET_SUCCESS: 'Get cart successfully',
 };

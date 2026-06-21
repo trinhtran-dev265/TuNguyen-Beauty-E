@@ -10,8 +10,41 @@ import { ApiResponse } from 'src/common/response/api-response';
 
 import { PRODUCT_MESSAGE } from 'src/common/constants/product-message.constant';
 
+type Product = {
+  id: string;
+
+  name: string;
+
+  description: string;
+
+  category: string;
+
+  skinType: string;
+
+  price: number;
+
+  stock: number;
+
+  image: string;
+
+  isActive: boolean;
+};
 @Injectable()
 export class ProductService {
+  async search(keyword: string) {
+    const snapshot = await firebaseAdmin
+      .firestore()
+      .collection('products')
+      .get();
+
+    const products: Product[] = snapshot.docs.map((doc) => ({
+      id: doc.id,
+
+      ...(doc.data() as Omit<Product, 'id'>),
+    }));
+    return products;
+  }
+
   async create(data: CreateProductDto) {
     try {
       const timestamp = firebaseAdmin.firestore.FieldValue.serverTimestamp();

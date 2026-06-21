@@ -53,6 +53,14 @@ export class CartController {
     );
   }
 
+  @Delete(':userId/clear')
+  async clearCart(
+    @Param('userId')
+    userId: string,
+  ) {
+    return this.cartService.clearCart(userId);
+  }
+
   @Delete(':userId/:productId')
   async removeItem(
     @Param('userId')
@@ -66,13 +74,5 @@ export class CartController {
 
       productId,
     );
-  }
-
-  @Delete(':userId/clear')
-  async clearCart(
-    @Param('userId')
-    userId: string,
-  ) {
-    return this.cartService.clearCart(userId);
   }
 }

@@ -8,6 +8,7 @@ import {
   Body,
   UploadedFile,
   UseInterceptors,
+  Query,
 } from '@nestjs/common';
 import { diskStorage } from 'multer';
 import { ProductService } from './product.service';
@@ -20,6 +21,14 @@ import { extname } from 'path';
 @Controller('products')
 export class ProductController {
   constructor(private readonly productService: ProductService) {}
+
+  @Get('/search')
+  async search(
+    @Query('keyword')
+    keyword: string,
+  ) {
+    return this.productService.search(keyword);
+  }
 
   @Post()
   @UseInterceptors(
