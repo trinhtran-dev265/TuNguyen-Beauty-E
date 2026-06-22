@@ -2,6 +2,7 @@ import { Image, Pressable, Text, View } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { COLORS } from "../contants/color";
 import { Product } from "../types/product.type";
+import { API_URL } from "../contants/config";
 
 type Props = {
   product: Product;
@@ -74,7 +75,7 @@ export default function ProductCard({ product, onPress }: Props) {
       </View>
       <Image
         source={{
-          uri: `http://192.168.1.15:3000/uploads/products/${product.image}`,
+          uri: `${API_URL}/uploads/products/${product.image}`,
         }}
         style={{
           width: "100%",

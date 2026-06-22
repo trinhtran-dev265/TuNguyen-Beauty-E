@@ -1,5 +1,6 @@
 import axios from "axios";
+import { API_URL } from "../contants/config";
 
 export const api = axios.create({
-  baseURL: "http://192.168.1.15:3000",
+  baseURL: API_URL,
 });

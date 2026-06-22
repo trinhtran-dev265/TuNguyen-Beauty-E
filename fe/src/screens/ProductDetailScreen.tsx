@@ -26,6 +26,7 @@ import { COLORS } from "../contants/color";
 import { SPACING } from "../contants/spacing";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { MainStackParamList } from "../types/navigation";
+import { API_URL } from "../contants/config";
 
 type NavigationProp = NativeStackNavigationProp<MainStackParamList>;
 
@@ -145,7 +146,7 @@ export default function ProductDetailScreen() {
       {/* Image */}
       <Image
         source={{
-          uri: `http://192.168.1.15:3000/uploads/products/${product.image}`,
+          uri: `${API_URL}/uploads/products/${product.image}`,
         }}
         style={{
           width: "90%",

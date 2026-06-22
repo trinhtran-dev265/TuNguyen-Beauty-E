@@ -22,6 +22,7 @@ import { Order } from "../types/order.type";
 
 import { COLORS, ORDER_BACKGROUNDS } from "../contants/color";
 import { SPACING } from "../contants/spacing";
+import { API_URL } from "../contants/config";
 
 const STATUS_STEP = {
   Pending: 1,
@@ -322,7 +323,7 @@ export default function OrderHistoryScreen() {
                     >
                       <Image
                         source={{
-                          uri: `http://192.168.1.15:3000/uploads/products/${product.image}`,
+                          uri: `${API_URL}/uploads/products/${product.image}`,
                         }}
                         style={{
                           width: 60,

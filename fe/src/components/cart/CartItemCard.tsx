@@ -5,6 +5,7 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { CartItem } from "../../types/cart.type";
 
 import { COLORS } from "../../contants/color";
+import { API_URL } from "../../contants/config";
 
 type Props = {
   item: CartItem;
@@ -54,7 +55,7 @@ export default function CartItemCard({
       >
         <Image
           source={{
-            uri: `http://192.168.1.15:3000/uploads/products/${item.image}`,
+            uri: `${API_URL}/uploads/products/${item.image}`,
           }}
           style={{
             width: 90,
